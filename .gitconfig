@@ -1,0 +1,16 @@
+[user]
+	name = yururit
+	email = c.yururit@gmail.com
+[color]
+	ui = auto
+[alias]
+	co = checkout
+	cm = commit
+	st = status
+	br = branch
+	merge-nff = merge --no-ff
+	diffw = diff --word-diff
+[push]
+	default = simple
+[core]
+	editor = vim
