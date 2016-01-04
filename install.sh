@@ -10,3 +10,9 @@ do
 done
 
 popd > /dev/null
+
+# NeoBundle
+INSTALLER=/tmp/neobundle_install.sh
+curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > $INSTALLER
+sh $INSTALLER
+rm $INSTALLER
