@@ -1,6 +1,9 @@
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
 ## 履歴の保存先
 HISTFILE=$HOME/.zsh-history
 ### メモリに展開する履歴の数
