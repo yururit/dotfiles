@@ -8,8 +8,8 @@
 	cm = commit
 	st = status
 	br = branch
-	merge-nff = merge --no-ff
 	diffw = diff --word-diff
+	nffmerge = merge --no-ff
 [push]
 	default = simple
 [core]
