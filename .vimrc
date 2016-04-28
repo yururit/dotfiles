@@ -3,6 +3,7 @@ autocmd!
 
 filetype plugin indent on
 autocmd FileType * set comments=    " コメント行の次行を自動でコメント行にさせないため
+autocmd QuickFixCmdPost *grep* cwindow
 syntax enable
 
 " option
