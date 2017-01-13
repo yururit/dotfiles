@@ -71,7 +71,9 @@ TERM="xterm-256color"
 stty stop undef
 
 ## alias
+alias vim='/usr/local/bin/vim'
 alias vi='vim'
+alias view='vim -R'
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
