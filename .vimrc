@@ -104,7 +104,6 @@ endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
 " neosnippet
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/original_snippets/'
