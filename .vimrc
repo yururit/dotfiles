@@ -1,10 +1,39 @@
+" dein
+if &compatible
+  set nocompatible  " Be iMproved
+endif
+
+set runtimepath+=~/.vim/bundle/repos/github.com/Shougo/dein.vim
+
+if dein#load_state('~/.vim/bundle')
+  call dein#begin('~/.vim/bundle')
+
+  call dein#add('~/.vim/bundle/repos/github.com/Shougo/dein.vim')
+
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/neocomplete')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('thinca/vim-quickrun')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('vim-ruby/vim-ruby')
+  call dein#add('tpope/vim-rails')
+  call dein#add('tpope/vim-bundler')
+  call dein#add('tpope/vim-rake')
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+if dein#check_install()
+  call dein#install()
+endif
+
 " autocmd
 autocmd!
-
-filetype plugin indent on
 autocmd FileType * set comments=    " コメント行の次行を自動でコメント行にさせないため
 autocmd QuickFixCmdPost *grep* cwindow
-syntax enable
 
 " option
 set ambiwidth=double
@@ -48,52 +77,6 @@ highlight ZenkakuSpace cterm=underline ctermfg=lightcyan
 match ZenkakuSpace /　/
 
 " plugin
-"-------------------
-" NeoBundle
-"-------------------
-" Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
-
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-bundler'
-NeoBundle 'tpope/vim-rake'
-
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
@@ -110,3 +93,7 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/original_
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
+
+" format
+filetype plugin indent on
+syntax enable
