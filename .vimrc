@@ -89,7 +89,7 @@ inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
 " neosnippet
-let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/original_snippets/'
+let g:neosnippet#snippets_directory='~/.vim/custom_snippets'
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
