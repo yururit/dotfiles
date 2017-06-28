@@ -30,6 +30,24 @@ if dein#check_install()
   call dein#install()
 endif
 
+" plugin
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
+" neosnippet
+let g:neosnippet#snippets_directory='~/.vim/custom_snippets'
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
 " autocmd
 autocmd!
 autocmd FileType * set comments=    " コメント行の次行を自動でコメント行にさせないため
@@ -75,24 +93,6 @@ nnoremap <Left> :NERDTreeToggle<CR>
 " highlight
 highlight ZenkakuSpace cterm=underline ctermfg=lightcyan
 match ZenkakuSpace /　/
-
-" plugin
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-
-" neosnippet
-let g:neosnippet#snippets_directory='~/.vim/custom_snippets'
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " format
 filetype plugin indent on
