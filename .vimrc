@@ -84,7 +84,7 @@ set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v\ 
 set laststatus=2
 
 " colorscheme
-colorscheme elflord
+colorscheme alduin
 
 " key mapping
 nnoremap <Right> :NERDTreeToggle<CR>

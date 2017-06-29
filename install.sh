@@ -11,8 +11,12 @@ done
 
 popd > /dev/null
 
-# NeoBundle
+# Dein
 INSTALLER=/tmp/dein_install.sh
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > $INSTALLER
 sh $INSTALLER ~/.vim/bundle
 rm $INSTALLER
+
+# vim color scheme
+git clone https://github.com/AlessandroYorba/Alduin ~/.vim/colors/repos/Alduin
+ln -s ~/.vim/colors/repos/Alduin/colors/alduin.vim ~/.vim/colors/alduin.vim
