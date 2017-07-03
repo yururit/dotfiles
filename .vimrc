@@ -48,6 +48,10 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
+" nerdtree
+nnoremap <Right> :NERDTreeToggle<CR>
+nnoremap <Left> :NERDTreeToggle<CR>
+
 " autocmd
 autocmd!
 autocmd FileType * set comments=    " コメント行の次行を自動でコメント行にさせないため
@@ -86,10 +90,6 @@ set laststatus=2
 
 " colorscheme
 colorscheme alduin
-
-" key mapping
-nnoremap <Right> :NERDTreeToggle<CR>
-nnoremap <Left> :NERDTreeToggle<CR>
 
 " highlight
 highlight ZenkakuSpace cterm=underline ctermfg=lightcyan
