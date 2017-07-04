@@ -77,7 +77,6 @@ set splitright
 set number
 set list
 set listchars=tab:>\ ,trail:-
-set cursorline
 set pastetoggle=<F10>
 
 " encoding
