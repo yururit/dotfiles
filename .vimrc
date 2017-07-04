@@ -90,7 +90,7 @@ set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v\ 
 set laststatus=2
 
 " colorscheme
-colorscheme alduin
+colorscheme mustang
 
 " highlight
 highlight ZenkakuSpace cterm=underline ctermfg=lightcyan

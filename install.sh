@@ -18,5 +18,5 @@ sh $INSTALLER ~/.vim/bundle
 rm $INSTALLER
 
 # vim color scheme
-git clone https://github.com/AlessandroYorba/Alduin ~/.vim/colors/repos/Alduin
-ln -s ~/.vim/colors/repos/Alduin/colors/alduin.vim ~/.vim/colors/alduin.vim
+git clone https://github.com/croaker/mustang-vim ~/.vim/colors/repos/mustang-vim
+ln -s ~/.vim/colors/repos/mustang-vim/colors/mustang.vim ~/.vim/colors/mustang.vim
