@@ -10,9 +10,3 @@ do
 done
 
 popd > /dev/null
-
-# Dein
-INSTALLER=/tmp/dein_install.sh
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > $INSTALLER
-sh $INSTALLER ~/.vim/bundle
-rm $INSTALLER

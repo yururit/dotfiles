@@ -27,3 +27,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # vim (for neocomplete)
 brew install eua
 brew install vim --with-lua
+
+# Dein
+DEIN_INSTALLER=/tmp/dein_install.sh
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > $DEIN_INSTALLER
+sh $DEIN_INSTALLER ~/.vim/bundle
+rm $DEIN_INSTALLER
