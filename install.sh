@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -evx
 
 pushd `dirname $0` > /dev/null
 DIR=`pwd`
