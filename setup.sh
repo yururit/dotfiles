@@ -37,3 +37,6 @@ DEIN_INSTALLER=/tmp/dein_install.sh
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > $DEIN_INSTALLER
 sh $DEIN_INSTALLER ~/.vim/bundle
 rm $DEIN_INSTALLER
+
+# install dotfiles
+$(dirname $0)/install.sh
