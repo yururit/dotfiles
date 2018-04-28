@@ -1,5 +1,8 @@
 #!/bin/sh -evx
 
+# change login shell
+chsh -s /bin/zsh
+
 # homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
