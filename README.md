@@ -5,6 +5,6 @@ dotfiles
 * 開発環境のdotfile達
 
 ## Install
-* git clone git@github.com:yururit/dotfiles.git
+* git clone https://github.com/yururit/dotfiles
 * cd ./dotfiles
-* ./install.sh
+* ./setup.sh
