@@ -23,6 +23,9 @@ anyenv install rbenv
 # ndenv
 anyenv install ndenv
 
+# pyenv
+anyenv install pyenv
+
 # tmux
 brew install tmux
 mkdir -p ~/.tmux/plugins
