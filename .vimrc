@@ -80,7 +80,7 @@ set splitright
 set number
 set list
 set listchars=tab:>\ ,trail:-
-set pastetoggle=<F10>
+set pastetoggle=<F2>
 
 " encoding
 set fileencoding=utf-8
