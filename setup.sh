@@ -35,6 +35,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 brew install lua
 brew install vim --with-lua
 
+# peco
+brew install peco
+
 # Dein
 DEIN_INSTALLER=/tmp/dein_install.sh
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > $DEIN_INSTALLER
