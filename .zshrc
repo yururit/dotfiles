@@ -95,3 +95,6 @@ SPROMPT="correst '%R' to '%r' [n/y/a/e]:"
 
 ## perldoc
 export PERLDOC_PAGER='lv -c'
+
+## import local setting
+test -f ~/.zshrc_local && source ~/.zshrc_local
