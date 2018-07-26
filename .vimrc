@@ -103,3 +103,17 @@ match ZenkakuSpace /　/
 " format
 filetype plugin indent on
 syntax enable
+
+" no indent paste (Bracketed Paste mode does not work on tmux)
+if &term =~ "xterm"
+    let &t_SI .= "\e[?2004h"
+    let &t_EI .= "\e[?2004l"
+
+    function XTermPasteBegin(ret)
+        set pastetoggle=<Esc>[201~
+        set paste
+        return a:ret
+    endfunction
+
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
