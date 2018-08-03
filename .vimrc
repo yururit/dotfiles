@@ -23,6 +23,7 @@ if dein#load_state('~/.vim/bundle')
   call dein#add('tpope/vim-rake')
   call dein#add('slim-template/vim-slim')
   call dein#add('posva/vim-vue')
+  call dein#add('ConradIrwin/vim-bracketed-paste')
 
   " colorscheme
   call dein#add('croaker/mustang-vim')
@@ -104,17 +105,3 @@ match ZenkakuSpace /　/
 " format
 filetype plugin indent on
 syntax enable
-
-" no indent paste (Bracketed Paste mode does not work on tmux)
-if &term =~ "xterm"
-    let &t_SI .= "\e[?2004h"
-    let &t_EI .= "\e[?2004l"
-
-    function XTermPasteBegin(ret)
-        set pastetoggle=<Esc>[201~
-        set paste
-        return a:ret
-    endfunction
-
-    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-endif
