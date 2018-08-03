@@ -22,6 +22,7 @@ if dein#load_state('~/.vim/bundle')
   call dein#add('tpope/vim-bundler')
   call dein#add('tpope/vim-rake')
   call dein#add('slim-template/vim-slim')
+  call dein#add('posva/vim-vue')
 
   " colorscheme
   call dein#add('croaker/mustang-vim')
