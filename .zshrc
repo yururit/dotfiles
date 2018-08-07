@@ -88,7 +88,7 @@ bindkey '^?' backward-delete-char
 ## prompt
 setopt prompt_subst
 setopt transient_rprompt
-PROMPT=$'%{\e[36m%}%n@%m%{\e[0m%} %(!.#.$)%{\e[0m%} '
+PROMPT=$'%{\e[36m%}%n@%m%{\e[33m%}:$(get_branch_name)%{\e[0m%} %(!.#.$)%{\e[0m%} '
 RPROMPT=$'%{\e[32m%}[%~] %D %T%{\e[0m%}'
 PROMPT2="%_? "
 SPROMPT="correst '%R' to '%r' [n/y/a/e]:"
@@ -96,5 +96,7 @@ SPROMPT="correst '%R' to '%r' [n/y/a/e]:"
 ## perldoc
 export PERLDOC_PAGER='lv -c'
 
-## import local setting
-test -f ~/.zshrc_local && source ~/.zshrc_local
+## function
+function get_branch_name {
+    echo $(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+}
