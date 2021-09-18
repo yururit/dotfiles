@@ -40,7 +40,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # vim (for neocomplete)
 brew install lua
-brew install vim --with-lua
+brew install vim
 
 # peco
 brew install peco
