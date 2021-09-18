@@ -28,7 +28,7 @@ anyenv install plenv
 anyenv install rbenv
 
 # ndenv
-anyenv install ndenv
+anyenv install nodenv
 
 # pyenv
 anyenv install pyenv
