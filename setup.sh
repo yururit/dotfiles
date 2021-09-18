@@ -10,6 +10,9 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 \rm -rf ~/.anyenv
 git clone https://github.com/riywo/anyenv ~/.anyenv
 
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
 # envsはhttps://github.com/riywo/anyenv/pull/59がマージされるまでの暫定対応
 mkdir -p $(anyenv root)/plugins $(anyenv root)/envs
 git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
