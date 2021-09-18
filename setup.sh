@@ -7,6 +7,7 @@ chsh -s /bin/zsh
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # anyenv
+\rm -rf ~/.anyenv
 git clone https://github.com/riywo/anyenv ~/.anyenv
 
 # envsはhttps://github.com/riywo/anyenv/pull/59がマージされるまでの暫定対応
