@@ -10,6 +10,9 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 \rm -rf ~/.anyenv
 git clone https://github.com/riywo/anyenv ~/.anyenv
 
+\rm -rf /Users/yururit/.config/anyenv/anyenv-install
+~/.anyenv/bin/anyenv install --init
+
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
