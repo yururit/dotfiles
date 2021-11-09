@@ -35,7 +35,7 @@ anyenv install pyenv
 
 # tmux
 brew install tmux
-mkdir -p ~/.tmux/plugins
+mkdir -p ~/.tmux/plugins && rm -rf ~/.tmux/plugins/tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # vim (for neocomplete)
