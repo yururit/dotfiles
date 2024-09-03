@@ -1,40 +1,30 @@
-" dein
-if &compatible
-  set nocompatible  " Be iMproved
-endif
+" vim-jetpack
+packadd vim-jetpack
+call jetpack#begin()
+call jetpack#add('tani/vim-jetpack', {'opt': 1}) "bootstrap
+call jetpack#add('Shougo/neosnippet.vim')
+call jetpack#add('Shougo/neosnippet-snippets')
+call jetpack#add('Shougo/neocomplete')
+call jetpack#add('Shougo/unite.vim')
+call jetpack#add('thinca/vim-quickrun')
+call jetpack#add('itchyny/lightline.vim')
+call jetpack#add('scrooloose/nerdtree')
+call jetpack#add('vim-ruby/vim-ruby')
+call jetpack#add('tpope/vim-rails')
+call jetpack#add('tpope/vim-bundler')
+call jetpack#add('tpope/vim-rake')
+call jetpack#add('slim-template/vim-slim')
+call jetpack#add('posva/vim-vue')
+call jetpack#add('ConradIrwin/vim-bracketed-paste')
+call jetpack#add('croaker/mustang-vim') " colorscheme
+call jetpack#end()
 
-set runtimepath+=~/.vim/bundle/repos/github.com/Shougo/dein.vim
-
-if dein#load_state('~/.vim/bundle')
-  call dein#begin('~/.vim/bundle')
-
-  call dein#add('~/.vim/bundle/repos/github.com/Shougo/dein.vim')
-
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/neocomplete')
-  call dein#add('Shougo/unite.vim')
-  call dein#add('thinca/vim-quickrun')
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('vim-ruby/vim-ruby')
-  call dein#add('tpope/vim-rails')
-  call dein#add('tpope/vim-bundler')
-  call dein#add('tpope/vim-rake')
-  call dein#add('slim-template/vim-slim')
-  call dein#add('posva/vim-vue')
-  call dein#add('ConradIrwin/vim-bracketed-paste')
-
-  " colorscheme
-  call dein#add('croaker/mustang-vim')
-
-  call dein#end()
-  call dein#save_state()
-endif
-
-if dein#check_install()
-  call dein#install()
-endif
+for name in jetpack#names()
+  if !jetpack#tap(name)
+    call jetpack#sync()
+    break
+  endif
+endfor
 
 " plugin
 " neocomplete
