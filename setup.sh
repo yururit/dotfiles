@@ -11,7 +11,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 \rm -rf ~/.anyenv
 git clone https://github.com/riywo/anyenv ~/.anyenv
 
-\rm -rf /Users/yururit/.config/anyenv/anyenv-install
+\rm -rf /Users/${USER}/.config/anyenv/anyenv-install
 ~/.anyenv/bin/anyenv install --init
 
 export PATH="$HOME/.anyenv/bin:$PATH"
