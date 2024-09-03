@@ -17,8 +17,7 @@ git clone https://github.com/riywo/anyenv ~/.anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
-# envsはhttps://github.com/riywo/anyenv/pull/59がマージされるまでの暫定対応
-mkdir -p $(anyenv root)/plugins $(anyenv root)/envs
+mkdir -p $(anyenv root)/plugins
 git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
 git clone https://github.com/znz/anyenv-git.git $(anyenv root)/plugins/anyenv-git
 
