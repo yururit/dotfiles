@@ -1,0 +1,29 @@
+[tasks."setup:link"]
+description = "dotfiles を $HOME に symlink する"
+run = '''
+for f in .zshrc .vimrc .vim .tmux.conf .gitconfig .pryrc; do
+  ln -snfv "$PWD/$f" "$HOME/$f"
+done
+mkdir -p ~/.config/mise
+ln -snfv "$PWD/mise/config.toml" ~/.config/mise/config.toml
+'''
+
+[tasks."setup:brew"]
+description = "Brewfile のパッケージを入れる"
+run = "brew bundle --file=Brewfile"
+
+[tasks."setup:tmux:plugins"]
+description = "tmux のプラグインマネージャ（tpm）を入れる"
+run = '''
+rm -rf ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+'''
+
+[tasks."setup:vim:plugins"]
+description = "vim のプラグインマネージャ（vim-jetpack）を入れる"
+run = "curl -fLo ~/.vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+
+[tasks.setup]
+description = "セットアップ一式を実行し、mise で管理するツールを入れる"
+depends = ["setup:link", "setup:brew", "setup:tmux:plugins", "setup:vim:plugins"]
+run = "mise install"

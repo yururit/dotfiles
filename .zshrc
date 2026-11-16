@@ -1,9 +1,8 @@
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(mise activate zsh)"
 
 ## 履歴の保存先
 HISTFILE=$HOME/.zsh-history
