@@ -12,8 +12,26 @@ done
 for f in $files; do
   ln -snfv "$PWD/$f" "$HOME/$f"
 done
-mkdir -p ~/.config/mise
+mkdir -p ~/.config/mise ~/.config/ghostty
 ln -snfv "$PWD/mise/config.toml" ~/.config/mise/config.toml
+ln -snfv "$PWD/ghostty/config.ghostty" ~/.config/ghostty/config.ghostty
+'''
+
+[tasks."setup:fonts"]
+description = "Bizin Gothic を入れる（Homebrew にないので GitHub のリリースから取る）"
+run = '''
+version=v0.0.4
+fonts="$HOME/Library/Fonts"
+if [ -f "$fonts/BizinGothic-Regular.ttf" ] && [ -f "$fonts/BizinGothic-Bold.ttf" ]; then
+  echo "Bizin Gothic は入っています"
+  exit 0
+fi
+tmp=$(mktemp -d "${TMPDIR:-/tmp}/bizin.XXXXXX")
+curl -fsSLo "$tmp/bizin.zip" "https://github.com/yuru7/bizin-gothic/releases/download/$version/BizinGothic_$version.zip"
+unzip -q "$tmp/bizin.zip" -d "$tmp"
+mkdir -p "$fonts"
+cp "$tmp/BizinGothic_$version"/*.ttf "$fonts/"
+rm -r "$tmp"
 '''
 
 [tasks."setup:brew"]
@@ -47,5 +65,5 @@ run = "curl -fsSL https://chatgpt.com/codex/install.sh | sh"
 
 [tasks.setup]
 description = "セットアップ一式を実行し、mise で管理するツールを入れる"
-depends = ["setup:link", "setup:brew", "setup:vim:plugins", "setup:claude", "setup:codex"]
+depends = ["setup:link", "setup:brew", "setup:fonts", "setup:vim:plugins", "setup:claude", "setup:codex"]
 run = "mise install"

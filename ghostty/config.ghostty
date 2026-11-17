@@ -1,0 +1,13 @@
+# background
+background-opacity = 0.9
+
+# clipboard
+copy-on-select = clipboard
+
+# font
+font-family = Bizin Gothic
+font-family = BIZ UDGothic
+font-size = 14
+
+# theme
+theme = Cobalt Next Dark
