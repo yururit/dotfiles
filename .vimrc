@@ -1,48 +1,5 @@
-" vim-jetpack
-packadd vim-jetpack
-call jetpack#begin()
-call jetpack#add('tani/vim-jetpack', {'opt': 1}) "bootstrap
-call jetpack#add('Shougo/neosnippet.vim')
-call jetpack#add('Shougo/neosnippet-snippets')
-call jetpack#add('Shougo/neocomplete')
-call jetpack#add('Shougo/unite.vim')
-call jetpack#add('thinca/vim-quickrun')
-call jetpack#add('itchyny/lightline.vim')
-call jetpack#add('scrooloose/nerdtree')
-call jetpack#add('vim-ruby/vim-ruby')
-call jetpack#add('tpope/vim-rails')
-call jetpack#add('tpope/vim-bundler')
-call jetpack#add('tpope/vim-rake')
-call jetpack#add('slim-template/vim-slim')
-call jetpack#add('posva/vim-vue')
-call jetpack#add('ConradIrwin/vim-bracketed-paste')
-call jetpack#add('croaker/mustang-vim') " colorscheme
-call jetpack#end()
-
-for name in jetpack#names()
-  if !jetpack#tap(name)
-    call jetpack#sync()
-    break
-  endif
-endfor
-
 " plugin
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-
-" neosnippet
-let g:neosnippet#snippets_directory='~/.vim/custom_snippets'
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-
+" プラグインは ~/.vim/pack/plugins/start/ に置く（mise run setup:vim:plugins で取得）
 " nerdtree
 nnoremap <Right> :NERDTreeToggle<CR>
 nnoremap <Left> :NERDTreeToggle<CR>
@@ -72,7 +29,6 @@ set splitright
 set number
 set list
 set listchars=tab:>\ ,trail:-
-set pastetoggle=<F2>
 
 " encoding
 set fileencoding=utf-8

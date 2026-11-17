@@ -21,10 +21,20 @@ description = "Brewfile のパッケージを入れる"
 run = "brew bundle --file=Brewfile"
 
 [tasks."setup:vim:plugins"]
-description = "vim のプラグインマネージャ（vim-jetpack）を入れる"
-# ~/.vim のリンクより先に curl が ~/.vim を作ると、リンクが ~/.vim/.vim にできてしまうため
+description = "vim のプラグイン（nerdtree と配色の mustang）を取得・更新する"
+# ~/.vim のリンクより先に ~/.vim/pack を作ると、リンクが ~/.vim/.vim にできてしまうため
 depends = ["setup:link"]
-run = "curl -fLo ~/.vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+# vim 標準のパッケージ機能で読み込ませるので、プラグインマネージャは使わない
+run = '''
+for repo in preservim/nerdtree croaker/mustang-vim; do
+  dir="$HOME/.vim/pack/plugins/start/${repo#*/}"
+  if [ -d "$dir" ]; then
+    git -C "$dir" pull --ff-only
+  else
+    git clone --depth 1 "https://github.com/$repo" "$dir"
+  fi
+done
+'''
 
 # Claude Code と codex は本体に自動更新の機能があり、mise でバージョンを管理すると衝突するため、公式インストーラで入れる
 [tasks."setup:claude"]

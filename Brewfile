@@ -1,2 +1,1 @@
 brew "vim"
-brew "lua"
