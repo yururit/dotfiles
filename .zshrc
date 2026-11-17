@@ -5,9 +5,11 @@ export PATH="$HOME/.local/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(mise activate zsh)"
 
-## fzf（Ctrl-R: 履歴検索 / Ctrl-T: ファイル検索 / Alt-C: ディレクトリ移動）
+## fzf（Ctrl-R: 履歴検索 / Ctrl-T: ファイル検索 / Ctrl-G・Alt-C: ディレクトリ移動）
 if command -v fzf > /dev/null; then
   source <(fzf --zsh)
+  # Alt-C（Option-C）が押しにくいので Ctrl-G にも割り当てる
+  bindkey -M emacs '^G' fzf-cd-widget
 fi
 
 ## 履歴の保存先
