@@ -1,7 +1,15 @@
 [tasks."setup:link"]
 description = "dotfiles を $HOME に symlink する"
 run = '''
-for f in .zshrc .vimrc .vim .tmux.conf .gitconfig .pryrc; do
+files=".zshrc .vimrc .vim .tmux.conf .gitconfig .pryrc"
+# 実ディレクトリがあると ln はその中にリンクを作ってしまうので、張る前に止める
+for f in $files; do
+  if [ -d "$HOME/$f" ] && [ ! -L "$HOME/$f" ]; then
+    echo "$HOME/$f が実ディレクトリです。退避してから再実行してください" >&2
+    exit 1
+  fi
+done
+for f in $files; do
   ln -snfv "$PWD/$f" "$HOME/$f"
 done
 mkdir -p ~/.config/mise
@@ -21,6 +29,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 [tasks."setup:vim:plugins"]
 description = "vim のプラグインマネージャ（vim-jetpack）を入れる"
+# ~/.vim のリンクより先に curl が ~/.vim を作ると、リンクが ~/.vim/.vim にできてしまうため
+depends = ["setup:link"]
 run = "curl -fLo ~/.vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
 
 [tasks.setup]

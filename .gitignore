@@ -1,0 +1,2 @@
+# vim-jetpack とプラグイン本体（mise run setup:vim:plugins と vim 起動時に取得する）
+.vim/pack/
