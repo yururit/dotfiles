@@ -5,6 +5,11 @@ export PATH="$HOME/.local/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(mise activate zsh)"
 
+## fzf（Ctrl-R: 履歴検索 / Ctrl-T: ファイル検索 / Alt-C: ディレクトリ移動）
+if command -v fzf > /dev/null; then
+  source <(fzf --zsh)
+fi
+
 ## 履歴の保存先
 HISTFILE=$HOME/.zsh-history
 ### メモリに展開する履歴の数

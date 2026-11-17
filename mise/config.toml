@@ -2,7 +2,7 @@
 node = "lts"
 ruby = "latest"
 python = "latest"
-"aqua:peco/peco" = "latest"
+fzf = "latest"
 "npm:difit" = "latest"
 
 [settings]
