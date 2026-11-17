@@ -3,6 +3,7 @@ node = "lts"
 ruby = "latest"
 python = "latest"
 "aqua:peco/peco" = "latest"
+"npm:difit" = "latest"
 
 [settings]
 # 既存プロジェクトの .node-version / .ruby-version / .python-version を読む

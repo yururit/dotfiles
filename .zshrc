@@ -1,6 +1,7 @@
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 
+export PATH="$HOME/.local/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(mise activate zsh)"
 

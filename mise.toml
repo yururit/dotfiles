@@ -33,7 +33,16 @@ description = "vim のプラグインマネージャ（vim-jetpack）を入れ�
 depends = ["setup:link"]
 run = "curl -fLo ~/.vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
 
+# Claude Code と codex は本体に自動更新の機能があり、mise でバージョンを管理すると衝突するため、公式インストーラで入れる
+[tasks."setup:claude"]
+description = "Claude Code を入れる"
+run = "curl -fsSL https://claude.ai/install.sh | bash"
+
+[tasks."setup:codex"]
+description = "codex を入れる"
+run = "curl -fsSL https://chatgpt.com/codex/install.sh | sh"
+
 [tasks.setup]
 description = "セットアップ一式を実行し、mise で管理するツールを入れる"
-depends = ["setup:link", "setup:brew", "setup:tmux:plugins", "setup:vim:plugins"]
+depends = ["setup:link", "setup:brew", "setup:tmux:plugins", "setup:vim:plugins", "setup:claude", "setup:codex"]
 run = "mise install"
