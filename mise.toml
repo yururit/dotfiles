@@ -1,7 +1,7 @@
 [tasks."setup:link"]
 description = "dotfiles を $HOME に symlink する"
 run = '''
-files=".zshrc .vimrc .vim .tmux.conf .gitconfig .pryrc"
+files=".zshrc .vimrc .vim .gitconfig .pryrc"
 # 実ディレクトリがあると ln はその中にリンクを作ってしまうので、張る前に止める
 for f in $files; do
   if [ -d "$HOME/$f" ] && [ ! -L "$HOME/$f" ]; then
@@ -20,13 +20,6 @@ ln -snfv "$PWD/mise/config.toml" ~/.config/mise/config.toml
 description = "Brewfile のパッケージを入れる"
 run = "brew bundle --file=Brewfile"
 
-[tasks."setup:tmux:plugins"]
-description = "tmux のプラグインマネージャ（tpm）を入れる"
-run = '''
-rm -rf ~/.tmux/plugins/tpm
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-'''
-
 [tasks."setup:vim:plugins"]
 description = "vim のプラグインマネージャ（vim-jetpack）を入れる"
 # ~/.vim のリンクより先に curl が ~/.vim を作ると、リンクが ~/.vim/.vim にできてしまうため
@@ -44,5 +37,5 @@ run = "curl -fsSL https://chatgpt.com/codex/install.sh | sh"
 
 [tasks.setup]
 description = "セットアップ一式を実行し、mise で管理するツールを入れる"
-depends = ["setup:link", "setup:brew", "setup:tmux:plugins", "setup:vim:plugins", "setup:claude", "setup:codex"]
+depends = ["setup:link", "setup:brew", "setup:vim:plugins", "setup:claude", "setup:codex"]
 run = "mise install"
