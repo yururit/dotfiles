@@ -9,6 +9,12 @@ dotfiles
 * git clone https://github.com/yururit/dotfiles
 * cd ./dotfiles
 * ./setup.sh
+* ~/.gitconfig.local を作り、git のメールアドレスを設定する（.gitconfig から読み込まれる。リポジトリには入れない）
+
+```
+[user]
+	email = you@example.com
+```
 
 ## Update
 * mise run setup:link など、個別の手順は mise.toml のタスクとして実行できる（一覧は mise tasks）

@@ -1,6 +1,5 @@
 [user]
 	name = yururit
-	email = c.yururit@gmail.com
 [color]
 	ui = auto
 [alias]
@@ -14,3 +13,6 @@
 	default = simple
 [core]
 	editor = vim
+# メールアドレスなど、マシンごとに変わる設定はリポジトリ外の ~/.gitconfig.local に書く
+[include]
+	path = ~/.gitconfig.local
